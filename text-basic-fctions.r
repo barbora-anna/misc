@@ -68,3 +68,29 @@ splitTokens <-  function(reducedTokens, nOfGroups = 2) {
   return(groups)
 }
 
+# Exports txt file in a typical "text" format
+exportMyText  <- function(x, pathToFile) {
+  write.table(x,
+              file = pathToFile,
+              quote = FALSE,
+              row.names = FALSE,
+              col.names = FALSE,
+              fileEncoding = "UTF-8")
+}
+
+# List intersection – finds intersecting values in a list
+## Input: list; Output: intersecting values
+getListIntersect   <-  function(list) {
+  intersectValues  <-  Reduce(intersect, list)
+
+  return(as.character(intersectValues))
+}
+
+# Stuffs string with NAs to be the same length as another vector 
+# Use to avoid errors with unequal lengths in vector->DF transformation
+## Input: string; Output: NA-stuffed string
+stuff     <-  function(string, maxLength) {
+  string  <-  append(string, rep(NA, maxLength - length(string)))
+
+  return(string)
+}
