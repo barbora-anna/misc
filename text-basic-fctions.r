@@ -1,7 +1,9 @@
 # Reads txt file from the connection; default UTF-8 encoding
 ## Output: raw txt file content
 readMyTextFile   <- function(path) {
-  myFile <- readChar(path, file.info(path)$size, useBytes = FALSE)
+  myFile <- readChar(path, 
+                     file.info(path)$size, 
+                     useBytes = FALSE)
 
   return(myFile)
 }
@@ -27,7 +29,9 @@ tokenizeMyText  <-  function(text,
 # Dataframer – takes a list of values and returns a freq. data frame
 ## Input: list of values; Output: freq data frame
 getFreqDF        <-  function(data) {
-  freqDataFrame  <-  data.frame(sort(table(data),
+  freqDataFrame  <-  data.frame(
+                        sort(
+                           table(data),
                                 decreasing = TRUE),
                                 stringsAsFactors = FALSE)
 
@@ -68,7 +72,7 @@ splitTokens <-  function(reducedTokens, nOfGroups = 2) {
   return(groups)
 }
 
-# Exports txt file in a typical "text" format
+# Exports txt file
 exportMyText  <- function(x, pathToFile) {
   write.table(x,
               file = pathToFile,
@@ -83,14 +87,16 @@ exportMyText  <- function(x, pathToFile) {
 getListIntersect   <-  function(list) {
   intersectValues  <-  Reduce(intersect, list)
 
-  return(as.character(intersectValues))
+  return(intersectValues)
 }
 
-# Stuffs string with NAs to be the same length as another vector 
-# Use to avoid errors with unequal lengths in vector->DF transformation
-## Input: string; Output: NA-stuffed string
-stuff     <-  function(string, maxLength) {
-  string  <-  append(string, rep(NA, maxLength - length(string)))
+# Stuffs a vector with NAs to a given length
+# Use to avoid errors with unequal lengths in cbind()/rbind()
+## Input: vector and desired length; Output: NA-stuffed string
+stuff     <-  function(vector, maxLength) {
+  stuffedVector  <-  append(vector, 
+                            rep(NA, 
+                                maxLength - length(vector)))
 
-  return(string)
+  return(stuffedVector)
 }
