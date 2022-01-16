@@ -55,14 +55,14 @@ getWordsWithNFreq <-  function(df, freqColName = "Freq",
 
 # Splitter – splits tokens into a given number of groups
 ## Input: (reduced) tokens; Output: list of groups
-splitTokens <-  function(reducedTokens, nOfGroups = 2) {
+splitTokens <-  function(tokens, nOfGroups = 2) {
   groups    <-  list()
-  nOfGroupMembers  <- floor(length(reducedTokens) / nOfGroups)
+  nOfGroupMembers  <- floor(length(tokens) / nOfGroups)
 
   from  <- 1
   to    <-  nOfGroupMembers
   for (i in 1:nOfGroups) {
-    currentGroup  <-  reducedTokens[from:to]
+    currentGroup  <-  tokens[from:to]
     groups[[i]]   <-  currentGroup
 
     from  <-  sum(lengths(groups)) + 1
@@ -99,4 +99,20 @@ stuff     <-  function(vector, maxLength) {
                                 maxLength - length(vector)))
 
   return(stuffedVector)
+}
+
+# Lists all txt files in a directory
+## Input: path to directory; Output: files in txt format
+listTxtFiles  <-  function(pathToDir) {
+  txtFiles    <-  c()
+
+  allFiles      <-  list.files(pathToDir)
+  for (file in allFiles) {
+    filePath    <-  file.path(pathToDir, file)
+    if (!dir.exists(filePath)) {
+      txtFiles  <-  append(txtFiles, file)
+    }
+  }
+
+  return(txtFiles)
 }
