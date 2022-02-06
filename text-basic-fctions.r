@@ -106,7 +106,8 @@ stuff     <-  function(vector, maxLength) {
 listTxtFiles  <-  function(pathToDir) {
   txtFiles    <-  c()
 
-  allFiles      <-  list.files(pathToDir)
+  allFiles      <-  list.files(pathToDir,
+                               pattern = "(.txt)$")
   for (file in allFiles) {
     filePath    <-  file.path(pathToDir, file)
     if (!dir.exists(filePath)) {
