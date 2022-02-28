@@ -1,4 +1,4 @@
-## A twist on a basic calculator exercise
+## A twist on the very basic calculator exercise
 # -----------------------------------------
 
 import time
