@@ -1,4 +1,4 @@
-# This code was written for scraping a specific webiste that contains a list of thousands of names.
+# This code was written for scraping a specific webiste that contains a list of thousands of first names.
 # This code gets the text from the webpage and allows user to filter the names by 
 # letters contaimned within a name. 
 
@@ -88,11 +88,10 @@ page_content = get_page_content(page_input())
 my_uc_words = find_uc_words(page_content)
 my_uc_words = set(my_uc_words)
 
-# User interaction
 time_to_sleep = 0.7
 while True:
   time.sleep(time_to_sleep)
-  # Input letters to be found and print corresponding names
+  # Get the letters to be found and print corresponding names
   wanted_letters = input( "Letters to be contained: " )
   names = get_words_containing(my_uc_words, wanted_letters)
   names_count = str(len(names))
