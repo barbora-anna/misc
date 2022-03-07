@@ -28,14 +28,3 @@ def l2_normalize(vector):
 
   return l2_normalized
 
-## Flattens a list of lists
-def flatten(a_list):
-  flat_list = [item for sublist in a_list for item in sublist]
-  return flat_list
-
-## Multiplies items in a given list 
-# ex.: a_list=[a, b, c], n=2 --> [a, a, b, b, c, c]
-def multiply_items(a_list, n):
-  multiplied_items = flatten([[i]*n for i in a_list])
-  return multiplied_items
-
