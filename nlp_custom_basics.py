@@ -1,5 +1,6 @@
 import numpy
 import pandas
+import random
 import os
 
 ## Split dataset to train and test (the simplest way)
