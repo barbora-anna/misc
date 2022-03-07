@@ -1,3 +1,7 @@
+import numpy
+import pandas
+import os
+
 ## Split dataset to train and test (the simplest way)
 def split_train_test(data, train_percentage):
   random.shuffle(data)
