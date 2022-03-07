@@ -1,3 +1,3 @@
-# misc
+## _misc_
 
 A repository of random stuff in R and Python (3.x) - small personal projects, useful basic functions... 
