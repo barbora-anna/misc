@@ -28,3 +28,17 @@ def l2_normalize(vector):
 
   return l2_normalized
 
+## Determines the similarity od 2 words based on Levenshtein distance
+def are_words_too_similar(word_a, word_b, redundancy_threshold):
+    distance = Levenshtein.distance(word_a, word_b)
+    larger_string_len = max( len(word_a), len(word_b) )
+
+    ratio = (larger_string_len - distance) / larger_string_len
+    return ratio >= redundancy_threshold
+  
+## Checks if a string might be a word
+def is_word(item):
+	if type(item) == str:
+		return bool(regex.match(r"^(\p{L}+)([-]\p{L}+)?$", item))
+	return False
+
