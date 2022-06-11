@@ -20,3 +20,9 @@ def flatten(a_list):
 def multiply_items(a_list, n):
   multiplied_items = flatten([[i]*n for i in a_list])
   return multiplied_items
+
+def export_list(my_list, new_filename):
+  textfile = open(new_filename, "w")
+  for element in my_list:
+      textfile.write(element + "\n")
+  textfile.close()
