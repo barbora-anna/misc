@@ -39,7 +39,7 @@ def are_words_too_similar(word_a, word_b, redundancy_threshold):
   return ratio >= redundancy_threshold
   
 def is_word(item):
-  '''Check if a string might be a word'''
+  '''Check if a string looks like a word'''
   if type(item) == str:
     return bool(regex.match(r"^(\p{L}+)([-]\p{L}+)?$", item))
   return False
