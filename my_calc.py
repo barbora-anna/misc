@@ -1,9 +1,9 @@
-## A twist on the very basic calculator exercise
-# -----------------------------------------
+## A (horrible) twist on the very basic calculator exercise.
+## I'm sorry.
+## -----------------------------------------
 
 import time
 
-# functions
 def add(number1, number2):
   result = number1 + number2
   return(result)
@@ -28,7 +28,6 @@ def divide(number1, number2):
     result = number1 / number2
     return(result)
 
-# calculator itself
 def calculator(first_number, second_number, operation):
   if operation == "+":
     result = add(first_number, second_number)
@@ -40,7 +39,6 @@ def calculator(first_number, second_number, operation):
     result = divide(first_number, second_number)
   return(result)
 
-# functions for input(s) – error handling
 def number_input():
   while True:
     try:
