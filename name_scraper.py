@@ -11,8 +11,8 @@ import os
 
 ### Functions ------------------------
 
-# Retrieves a given webpage html
 def get_page_content(wanted_url):
+  '''Retrieve a webpage in html'''
   r = requests.get(wanted_url)
   if r.ok:
     print('Request successful')
@@ -21,11 +21,9 @@ def get_page_content(wanted_url):
 
   return r.text
 
-# Finds all words starting with an uppercase letter
 def find_uc_words(string):
-  uc_words = re.findall(r'[A-Z][a-z]\w*', string)
-
-  return uc_words
+  '''Find words starting with uppercase'''
+  return re.findall(r'[A-Z][a-z]\w*', string)
 
 # Retrieves names containing given letters
 def get_words_containing(list_of_names, letters):
